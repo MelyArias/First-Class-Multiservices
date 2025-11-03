@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Class Multi-Services | Taxes, Notary, Translations, Consulting</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons -->
+    <script type="module" src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        /* Set Inter as the primary font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F9FAFB; /* Light background */
+        }
+        /* Custom styles for the smooth scrolling behavior */
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+        /* Custom Utility for service card icons */
+        .service-icon {
+            @apply p-4 rounded-full bg-amber-100 text-amber-600 mb-4 inline-block;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Message Box (Custom Alert/Modal) -->
+    <div id="message-box" class="fixed inset-0 bg-gray-900 bg-opacity-70 z-50 hidden items-center justify-center p-4" onclick="hideMessageBox()">
+        <div class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full transition-all duration-300 transform scale-100" onclick="event.stopPropagation()">
+            <h3 id="message-title" class="text-xl font-bold mb-3 text-blue-800"></h3>
+            <p id="message-content" class="text-gray-600 mb-4"></p>
+            <button onclick="hideMessageBox()" class="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-150">Close</button>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-40 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo/Branding -->
+                <a href="#home" class="flex items-center space-x-2 text-2xl font-extrabold text-blue-800 tracking-tight">
+                    <span data-lucide="crown" class="w-6 h-6 text-amber-500"></span>
+                    <span>First Class Multi-Services</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 text-lg font-medium">
+                    <a href="#services" class="text-gray-600 hover:text-blue-600 transition duration-150">Services</a>
+                    <a href="#about" class="text-gray-600 hover:text-blue-600 transition duration-150">About Us</a>
+                    <a href="#contact" class="text-white bg-blue-600 px-4 py-2 rounded-lg shadow-lg hover:bg-blue-700 transition duration-150">Get Started</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition duration-150">
+                    <span data-lucide="menu" class="w-6 h-6"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <nav id="mobile-menu" class="hidden md:hidden bg-white shadow-xl">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-lg">
+                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Services</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">About Us</a>
+                <a href="#contact" class="block w-full text-center mt-4 py-2 bg-blue-600 text-white rounded-md font-medium hover:bg-blue-700">Contact Now</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 1. Hero Section -->
+        <section id="home" class="relative bg-blue-800 text-white py-24 sm:py-32 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="relative z-10">
+                    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-4 leading-tight">
+                        Your Trusted Partner for <span class="text-amber-400">First Class Services</span>
+                    </h1>
+                    <p class="text-xl sm:text-2xl mb-8 font-light max-w-3xl mx-auto">
+                        We provide seamless, professional solutions for Taxes, Notary, Translations, and Business Consulting.
+                    </p>
+                    <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-xl shadow-2xl text-blue-800 bg-amber-400 hover:bg-amber-300 transition duration-300 transform hover:scale-105">
+                        Book Your Consultation Today <span data-lucide="arrow-right" class="ml-2 w-5 h-5"></span>
+                    </a>
+                </div>
+            </div>
+            <!-- Background pattern for visual interest -->
+            <div class="absolute inset-0 opacity-10">
+                <svg class="h-full w-full" fill="none" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <pattern id="pattern" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+                        <path d="M-1,1 l2,-2 M0,10 l10,-10 M9,11 l2,-2" stroke="#FFFFFF" stroke-width="0.5"/>
+                    </pattern>
+                    <rect width="100%" height="100%" fill="url(#pattern)"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- 2. Services Section -->
+        <section id="services" class="py-16 sm:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-base font-semibold tracking-wider text-blue-600 uppercase">Our Expertise</h2>
+                    <p class="mt-2 text-3xl sm:text-4xl font-extrabold text-gray-900">Comprehensive Solutions, Exceptional Service</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Service Card 1: Taxes -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1 border-t-4 border-blue-500">
+                        <span class="service-icon"><span data-lucide="dollar-sign" class="w-6 h-6"></span></span>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Tax Preparation & Filing</h3>
+                        <p class="text-gray-600">Maximize your returns and ensure complete compliance. We handle personal and business tax preparation with accuracy and speed.</p>
+                    </div>
+
+                    <!-- Service Card 2: Notary Public -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1 border-t-4 border-amber-500">
+                        <span class="service-icon"><span data-lucide="stamp" class="w-6 h-6"></span></span>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Notary Public Services</h3>
+                        <p class="text-gray-600">Secure and convenient notarization for all your legal documents, affidavits, and official paperwork.</p>
+                    </div>
+
+                    <!-- Service Card 3: Translations -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1 border-t-4 border-blue-500">
+                        <span class="service-icon"><span data-lucide="languages" class="w-6 h-6"></span></span>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Certified Translations</h3>
+                        <p class="text-gray-600">Accurate, certified translations for legal, academic, and immigration purposes (e.g., Spanish to English and vice-versa).</p>
+                    </div>
+
+                    <!-- Service Card 4: Consulting -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1 border-t-4 border-amber-500">
+                        <span class="service-icon"><span data-lucide="briefcase" class="w-6 h-6"></span></span>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Business Consulting</h3>
+                        <p class="text-gray-600">Strategic guidance to help you start, manage, and grow your small business or personal finances effectively.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. About Section (Value Proposition) -->
+        <section id="about" class="py-16 sm:py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
+                    <div class="mb-10 lg:mb-0">
+                        <h2 class="text-base font-semibold tracking-wider text-amber-600 uppercase">The First Class Difference</h2>
+                        <p class="mt-2 text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">Why Choose Multi-Services Over Multiple Vendors?</p>
+                        <p class="text-xl text-gray-600 leading-relaxed">
+                            We bring all your essential professional needs under one roof. Our clients save time, reduce stress, and gain confidence knowing their critical documents and finances are handled by a single, expert team.
+                        </p>
+
+                        <div class="mt-8 space-y-4">
+                            <div class="flex items-center">
+                                <span data-lucide="check-circle" class="w-6 h-6 text-blue-600 mr-3"></span>
+                                <p class="text-lg font-medium text-gray-700">Convenience of a single point of contact.</p>
+                            </div>
+                            <div class="flex items-center">
+                                <span data-lucide="check-circle" class="w-6 h-6 text-blue-600 mr-3"></span>
+                                <p class="text-lg font-medium text-gray-700">Dedicated, personalized customer attention.</p>
+                            </div>
+                            <div class="flex items-center">
+                                <span data-lucide="check-circle" class="w-6 h-6 text-blue-600 mr-3"></span>
+                                <p class="text-lg font-medium text-gray-700">Expertise guaranteed in every service area.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Mock Image/Illustration placeholder -->
+                    <div class="bg-white p-6 rounded-xl shadow-2xl border-l-8 border-amber-500 flex items-center justify-center h-full">
+                        <div class="text-center py-10">
+                            <span data-lucide="users" class="w-16 h-16 text-blue-400 mx-auto mb-4"></span>
+                            <p class="text-xl font-semibold text-gray-700">Your professional success, simplified.</p>
+                            <p class="text-gray-500">Contact us to streamline your legal and financial life.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Contact Section (Form) -->
+        <section id="contact" class="py-16 sm:py-24 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-base font-semibold tracking-wider text-blue-600 uppercase">Contact Us</h2>
+                    <p class="mt-2 text-3xl sm:text-4xl font-extrabold text-gray-900">Start Your First Class Experience</p>
+                    <p class="mt-4 text-lg text-gray-600">Tell us about your needs—we'll respond within 24 business hours.</p>
+                </div>
+
+                <div class="bg-gray-50 p-8 md:p-12 rounded-xl shadow-xl">
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+                        </div>
+
+                        <div>
+                            <label for="service" class="block text-sm font-medium text-gray-700 mb-1">Interested Service(s)</label>
+                            <select id="service" name="service" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150 bg-white appearance-none">
+                                <option value="" disabled selected>Select a Service</option>
+                                <option value="Taxes">Tax Preparation & Filing</option>
+                                <option value="Notary">Notary Public Services</option>
+                                <option value="Translations">Certified Translations</option>
+                                <option value="Consulting">Business Consulting</option>
+                                <option value="Multiple">Multiple Services</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-700 transition duration-300 transform hover:-translate-y-0.5">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="mt-12 text-center text-gray-600">
+                    <p class="flex items-center justify-center space-x-2 text-lg mb-2">
+                        <span data-lucide="mail" class="w-5 h-5 text-amber-500"></span>
+                        <span>Email: info@firstclassmultiservices.com</span>
+                    </p>
+                    <p class="flex items-center justify-center space-x-2 text-lg">
+                        <span data-lucide="phone" class="w-5 h-5 text-amber-500"></span>
+                        <span>Phone: (555) 123-4567</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-4">
+                <a href="#home" class="text-2xl font-bold text-amber-400">First Class Multi-Services</a>
+            </div>
+            <p class="text-gray-400 mb-6">Taxes, Notary, Translations, Consulting. First Class Service, Every Time.</p>
+
+            <div class="flex justify-center space-x-6 mb-8 text-lg font-medium">
+                <a href="#services" class="text-gray-300 hover:text-blue-400 transition duration-150">Services</a>
+                <a href="#about" class="text-gray-300 hover:text-blue-400 transition duration-150">About</a>
+                <a href="#contact" class="text-gray-300 hover:text-blue-400 transition duration-150">Contact</a>
+            </div>
+
+            <p class="text-sm text-gray-500 border-t border-gray-700 pt-6">
+                &copy; <span id="current-year"></span> First Class Multi-Services. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Ensure Lucide icons are correctly rendered after the DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+
+        // ===================================
+        // MOBILE MENU TOGGLE
+        // ===================================
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // ===================================
+        // CUSTOM MESSAGE BOX UTILITY
+        // ===================================
+        const messageBox = document.getElementById('message-box');
+        const messageTitle = document.getElementById('message-title');
+        const messageContent = document.getElementById('message-content');
+
+        function showMessageBox(title, content, type = 'success') {
+            messageTitle.textContent = title;
+            messageContent.textContent = content;
+
+            // Apply type-specific colors to the title
+            if (type === 'success') {
+                messageTitle.classList.remove('text-red-600');
+                messageTitle.classList.add('text-blue-800');
+            } else if (type === 'error') {
+                messageTitle.classList.remove('text-blue-800');
+                messageTitle.classList.add('text-red-600');
+            }
+
+            messageBox.classList.remove('hidden');
+            messageBox.classList.add('flex'); // Use flex to show it
+        }
+
+        function hideMessageBox() {
+            messageBox.classList.add('hidden');
+            messageBox.classList.remove('flex');
+        }
+
+        // ===================================
+        // CONTACT FORM HANDLING (Simulated)
+        // ===================================
+        const contactForm = document.getElementById('contact-form');
+
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData.entries());
+
+            // Simple validation check
+            if (!data.name || !data.email || !data.service || !data.message) {
+                showMessageBox('Error', 'Please fill out all fields before submitting.', 'error');
+                return;
+            }
+
+            // Simulate an API call with a promise/timeout (no actual email sent)
+            console.log('Form Data Submitted:', data);
+
+            // Show a loading/processing state
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+            submitButton.classList.add('opacity-70');
+
+            setTimeout(() => {
+                // Simulation successful response
+                showMessageBox(
+                    'Success!',
+                    `Thank you, ${data.name}. Your inquiry about ${data.service} has been received. We will contact you at ${data.email} within 24 hours.`,
+                    'success'
+                );
+
+                // Reset the form and button
+                contactForm.reset();
+                submitButton.textContent = originalButtonText;
+                submitButton.disabled = false;
+                submitButton.classList.remove('opacity-70');
+
+            }, 2000); // 2 second delay to simulate network latency
+        });
+    </script>
+</body>
+</html>
