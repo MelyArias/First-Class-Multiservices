@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="First class.png">
     <title>First Class Multi-Services LLC | Tax Prep, Notary, Translations</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="module" src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
@@ -136,7 +137,7 @@
                         <h2 class="text-base font-semibold tracking-wider text-fcm-accent uppercase opacity-80">The First Class Difference</h2>
                         <p class="mt-2 text-3xl sm:text-4xl font-heading font-extrabold text-fcm-accent mb-6">Our Commitment to Accuracy and Speed</p>
                         <p class="text-xl text-gray-300 leading-relaxed mb-8">
-                            We bring all your essential professional needs under one roof. Our goal is to handle your complex documents with **accuracy and speed** so you can focus on what matters most—your business and your life.
+                            We bring all your essential professional needs under one roof. Our goal is to handle your complex documents with accuracy and speed so you can focus on what matters most—your business and your life.
                         </p>
 
                         <div class="space-y-4">
@@ -236,78 +237,6 @@
             });
         });
 
-        // ===================================
-        // CUSTOM MESSAGE BOX UTILITY
-        // ===================================
-        const messageBox = document.getElementById('message-box');
-        const messageTitle = document.getElementById('message-title');
-        const messageContent = document.getElementById('message-content');
-
-        function showMessageBox(title, content, type = 'success') {
-            messageTitle.textContent = title;
-            messageContent.textContent = content;
-
-            const titleElement = messageTitle;
-            // Use custom navy color for success, red for error
-            if (type === 'success') {
-                titleElement.classList.remove('text-red-600');
-                titleElement.classList.add('text-fcm-navy');
-            } else if (type === 'error') {
-                titleElement.classList.remove('text-fcm-navy');
-                titleElement.classList.add('text-red-600');
-            }
-
-            messageBox.classList.remove('hidden');
-            messageBox.classList.add('flex');
-        }
-
-        function hideMessageBox() {
-            messageBox.classList.add('hidden');
-            messageBox.classList.remove('flex');
-        }
-
-        // ===================================
-        // CONTACT FORM HANDLING (SIMULATED)
-        // NOTE: This currently simulates a submission. For real email functionality, 
-        // you will need to integrate a backend service or a form submission endpoint.
-        // ===================================
-        const contactForm = document.getElementById('contact-form');
-
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData.entries());
-
-            // Simple validation check
-            if (!data.name || !data.email || !data.service || !data.message) {
-                showMessageBox('Error', 'Please fill out all fields before submitting.', 'error');
-                return;
-            }
-
-            // Show a loading/processing state
-            const submitButton = contactForm.querySelector('button[type="submit"]');
-            const originalButtonText = submitButton.textContent;
-            submitButton.disabled = true;
-            submitButton.textContent = 'Sending...';
-            submitButton.classList.add('opacity-70');
-
-            // Simulate a successful API call
-            setTimeout(() => {
-                showMessageBox(
-                    'Success!',
-                    `Thank you, ${data.name}. Your inquiry about ${data.service} has been received. We will contact you at ${data.email} shortly.`,
-                    'success'
-                );
-
-                // Reset the form and button
-                contactForm.reset();
-                submitButton.textContent = originalButtonText;
-                submitButton.disabled = false;
-                submitButton.classList.remove('opacity-70');
-
-            }, 2000); // 2 second delay to simulate network latency
-        });
     </script>
 </body>
 </html>
